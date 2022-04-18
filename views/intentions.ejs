@@ -1,0 +1,125 @@
+<%- include('header'); -%>
+
+    <!-- Content -->
+    <section id="concat-mass-intentions">
+        <div class="container">
+            <main>
+                <div class="py-5 text-center">
+                    <h2>Mass Intentions</h2>
+                    <p class="lead">Please fill the below information to submit a Mass Intention.</p>
+                </div>
+
+                <div class="row g-5">
+                    <div class="col-md-5 col-lg-4 order-md-last">
+                        <h4 class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="text-primary">Your cart</span>
+                        </h4>
+                        <ul class="list-group mb-3">
+                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                                <div>
+                                    <h6 class="my-0">Intentions</h6>
+
+                                </div>
+                                <span class="text-muted" id="selectedNoIntentions">1</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                                <div>
+                                    <h6 class="my-0">Price per Intention</h6>
+                                </div>
+                                <span class="text-muted" id="selectedPrice">Rs 0</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Total (INR)</span>
+                                <strong id="totalAmount">Rs 0</strong>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-7 col-lg-8">
+                        <h4 class="mb-3">Book Intentions</h4>
+                        <form class="needs-validation" action="/intentions" method="post">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label for="requestorName" class="form-label">Requestor Name</label>
+                                    <input type="text" class="form-control" id="requestorName" name="requestorName" placeholder="" value="" required>
+                                    <div class="invalid-feedback">
+                                        Valid first name is required.
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label for="massDate" class="form-label">Mass Date</label>
+                                    <input type="date" class="form-control" id="massDate" name="massDate" placeholder="" value="" required>
+                                    <div class="invalid-feedback">
+                                        Please choose a valid date.
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label for="massTime" class="form-label">Mass Time</label>
+                                    <input type="time" class="form-control" id="massTime" name="massTime" placeholder="" value="" required>
+                                    <div class="invalid-feedback">
+                                        Please choose a valid time.
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label for="noOfIntentions" class="form-label">No. of Intentions</label>
+                                    <select class="form-select" id="noOfIntentions" name="noOfIntentions" required>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select a valid number of Intentions.
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label for="massType" class="form-label">Conditions</label>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="massType" name="massType" value="special">
+                                        <label class="form-check-label" for="massType">Special Mass (Novena/Feast/etc.)</label>
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please select a valid number of Intentions.
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="intentionsList" class="form-label">Intentions List</label>
+                                    <textarea class="form-control" id="intentionsList" name="intentionsList" rows="5" cols="50" required></textarea>
+                                    <div class="invalid-feedback">
+                                        Please enter your list of intentions.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <h4 class="mb-3">Mode of Payment</h4>
+
+                            <div class="my-3">
+                                <div class="form-check form-check-inline">
+                                    <input id="cash" name="paymentMethod" value="Cash" type="radio" class="form-check-input" checked required>
+                                    <label class="form-check-label" for="cash">Cash</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="online" name="paymentMethod" value="Online" type="radio" class="form-check-input" required>
+                                    <label class="form-check-label" for="online">Online</label>
+                                </div>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <button class="w-100 btn btn-primary btn-lg" type="submit" onclick="submitIntention()">Submit Intention</button>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </section>
+    <script src="js/form-validation.js"></script>
+    <%- include('footer'); -%>

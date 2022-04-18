@@ -49,14 +49,14 @@ app.get("/listpage", function(req, res) {
     res.render("list", { kindOfDay: day });
 });
 
-//Handle get requests to the help page
-app.get("/help", function(req, res) {
-    res.send("Hello World this should be the help page!");
+//Handle get requests to the about page
+app.get("/about", function(req, res) {
+    res.render("about");
 });
 
 //Handle get requests to the Intentions page
 app.get("/intentions", function(req, res) {
-    res.sendFile(__dirname + "/intentions.html");
+    res.render("intentions");
 });
 
 //Handle post request to the Intentions Page
@@ -91,7 +91,7 @@ app.post("/intentions", function(req, res) {
 
 //Handle get requests to the Donations page
 app.get("/donations", function(req, res) {
-    res.sendFile(__dirname + "/donations.html");
+    res.render("donations");
 });
 
 //Handle post request to the Donations Page
@@ -110,4 +110,13 @@ app.post("/donations", function(req, res) {
 
     console.log("Total Amount Payable = Rs " + totalAmount);
     res.redirect("/donations");
+});
+
+/*
+app.get("/viewbookings", function(req, res) {
+    res.sendFile(__dirname + "/viewBookings.html");
+});*/
+
+app.get("/viewbookings", function(req, res) {
+    res.render("viewBookings");
 });
